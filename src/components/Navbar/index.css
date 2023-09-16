@@ -1,0 +1,9 @@
+span {
+	z-index: 0;
+	@apply min-w-fit absolute rounded-full -right-2 flex justify-center items-center text-xs font-sans font-bold px-1 border-2 border-blue-600 bg-slate-900 text-white empty:hidden;
+}
+
+span::after {
+	z-index: -2;
+	@apply absolute content-[""] w-full h-full rounded-full animate-ping animate-infinite animate-duration-[3000ms] animate-ease-linear bg-gradient-radial from-slate-900 from-40% via-slate-900 via-50% to-blue-600 to-75%;
+}

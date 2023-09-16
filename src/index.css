@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 body {
-	@apply bg-slate-900 text-white m-0 p-0;
+	@apply bg-slate-900/95 text-white m-0 p-0;
 	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
