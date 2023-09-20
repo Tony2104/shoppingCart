@@ -12,7 +12,7 @@ type StoreItemProp = {
 };
 
 function StoreItem({ id, name, price, imgUrl }: StoreItemProp) {
-	let quantity = 1;
+	const quantity = 0;
 
 	return (
 		<li key={id} className="bg-[#243B48] border-2 border-slate-100 rounded-md">
@@ -25,7 +25,7 @@ function StoreItem({ id, name, price, imgUrl }: StoreItemProp) {
 				<cite className="text-2xl">{name}</cite>
 				<h3 className="text-xl justify-self-end">{formatCurrency(price)}</h3>
 				<div className="col-span-2">
-					{quantity === 0 ? (
+					{quantity == 0 ? (
 						<button className="bg-teal-300 w-full rounded">
 							+ Add to Cart
 						</button>
@@ -35,7 +35,10 @@ function StoreItem({ id, name, price, imgUrl }: StoreItemProp) {
 								<button className="bg-emerald-400 px-1 rounded">
 									<FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
 								</button>
-								<p>{0} in Cart</p>
+								<p>
+									<span className="font-semibold">{0} </span>
+									In Cart
+								</p>
 								<button className="bg-emerald-400 px-1 rounded">
 									<FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
 								</button>
