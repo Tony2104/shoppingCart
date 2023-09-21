@@ -30,7 +30,9 @@ function StoreItem({ id, name, price, imgUrl }: StoreItemProp) {
 			/>
 			<div className="grid grid-cols-2 gap-3 py-5 items-center mx-3">
 				<cite className="text-2xl">{name}</cite>
-				<h3 className="text-xl justify-self-end">{formatCurrency(price)}</h3>
+				<h3 className="text-xl justify-self-end font-sans">
+					{formatCurrency(price)}
+				</h3>
 				<div className="col-span-2">
 					{quantity == 0 ? (
 						<button
