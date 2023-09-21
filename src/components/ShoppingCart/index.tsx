@@ -3,8 +3,9 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 import "./index.css";
 
 import { formatCurrency } from "../../utilities/formatCurrency";
-import storeItens from "../../data/items.json";
 import { useShoppingCart } from "../../context/ShoppingCartContext";
+import CartItem from "../CartItem";
+import storeItens from "../../data/items.json";
 
 function ShoppingCart() {
 	const { isOpen, closeCart, cartItems } = useShoppingCart();
@@ -22,35 +23,19 @@ function ShoppingCart() {
 					</div>
 					<div className="max-h-screen">
 						<ul className="flex flex-col gap-2">
-							{storeItens.map((item) => (
-								<li key={item.id}>
-									<div className="flex items-center">
-										<img
-											src={item.imgUrl}
-											alt=""
-											className="w-32 h-16 object-cover mr-2"
-										/>
-										<div>
-											<h2>
-												{item.name}{" "}
-												<span className="text-slate-400 font-sans text-xs">
-													x5
-												</span>
-											</h2>
-											<small className="text-slate-400 font-sans text-xs">
-												{formatCurrency(item.price)}
-											</small>
-										</div>
-										<div>
-											<h2></h2>
-										</div>
-									</div>
-								</li>
+							{cartItems.map((item) => (
+								<CartItem key={item.id} {...item} />
 							))}
 						</ul>
 					</div>
-					<h3 className="text-lg justify-self-end pr-4">
-						Total {formatCurrency(0)}
+					<h3 className="text-lg justify-self-end pr-4 font-sans font-semibold">
+						Total{" "}
+						{formatCurrency(
+							cartItems.reduce((total, cartItem) => {
+								const item = storeItens.find((item) => item.id === cartItem.id);
+								return total + (item?.price || 0) * cartItem.quantity;
+							}, 0)
+						)}
 					</h3>
 				</div>
 			</div>
