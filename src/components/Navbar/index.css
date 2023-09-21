@@ -1,6 +1,6 @@
 [data-btn] > span {
 	z-index: 0;
-	@apply min-w-fit absolute rounded-full -right-2 flex justify-center items-center text-xs font-sans font-bold px-1 border-2 border-teal-300 bg-slate-900 text-white empty:hidden;
+	@apply min-w-fit absolute rounded-full -right-2 flex justify-center items-center text-xs font-sans font-bold px-1 border-2 border-teal-300 bg-slate-900 text-white;
 }
 
 [data-btn] > span::after {

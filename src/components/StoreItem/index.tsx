@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
 import { formatCurrency } from "../../utilities/formatCurrency";
+import { useShoppingCart } from "../../context/ShoppingCartContext";
 
 type StoreItemProp = {
 	id: number;
@@ -12,7 +13,13 @@ type StoreItemProp = {
 };
 
 function StoreItem({ id, name, price, imgUrl }: StoreItemProp) {
-	const quantity = 0;
+	const {
+		getItemQuantity,
+		increaseCartQuantity,
+		decreaseCartQuantity,
+		removeFromCart,
+	} = useShoppingCart();
+	const quantity = getItemQuantity(id);
 
 	return (
 		<li key={id} className="bg-[#243B48] border-2 border-slate-100 rounded-md">
@@ -26,24 +33,38 @@ function StoreItem({ id, name, price, imgUrl }: StoreItemProp) {
 				<h3 className="text-xl justify-self-end">{formatCurrency(price)}</h3>
 				<div className="col-span-2">
 					{quantity == 0 ? (
-						<button className="bg-teal-300 w-full rounded">
+						<button
+							className="bg-teal-300 w-full rounded"
+							onClick={() => increaseCartQuantity(id)}
+						>
 							+ Add to Cart
 						</button>
 					) : (
 						<div className="flex flex-col items-center">
 							<div className="flex gap-3 justify-center mb-2">
 								<button className="bg-emerald-400 px-1 rounded">
-									<FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
+									<FontAwesomeIcon
+										icon={faMinus}
+										onClick={() => decreaseCartQuantity(id)}
+									></FontAwesomeIcon>
 								</button>
 								<p>
-									<span className="font-semibold">{0} </span>
+									<span className="font-semibold">{getItemQuantity(id)} </span>
 									In Cart
 								</p>
 								<button className="bg-emerald-400 px-1 rounded">
-									<FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+									<FontAwesomeIcon
+										icon={faPlus}
+										onClick={() => increaseCartQuantity(id)}
+									></FontAwesomeIcon>
 								</button>
 							</div>
-							<button className="bg-red-600 px-2 rounded">Remove</button>
+							<button
+								className="bg-red-600 px-2 rounded"
+								onClick={() => removeFromCart(id)}
+							>
+								Remove
+							</button>
 						</div>
 					)}
 				</div>

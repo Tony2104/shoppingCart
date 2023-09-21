@@ -1,0 +1,28 @@
+.icon:hover {
+	animation: rotation 0.3s ease-in-out;
+}
+
+[data-open="false"] {
+	@apply fixed top-0 right-0;
+	transition: transform 1s ease-in-out;
+	transform: translateX(600px);
+}
+
+[data-open="true"] {
+	@apply fixed top-0 right-0;
+	transform: translateX(0px);
+	transition: transform 0.5s ease-in-out;
+}
+
+/* body:has([data-open="true"]) {
+	overflow-y: hidden;
+} */
+
+@keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(90deg);
+	}
+}

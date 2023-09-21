@@ -7,7 +7,7 @@ function Store() {
 			<h2 className="text-4xl my-3 md:my-6">Store</h2>
 			<ul className="grid md:grid-cols-2 gap-5 flex-col lg:flex-row">
 				{storeItens.map((item) => (
-					<StoreItem {...item} />
+					<StoreItem key={item.id} {...item} />
 				))}
 			</ul>
 		</section>
