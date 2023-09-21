@@ -1,26 +1,26 @@
 [
 	{
 		"id": 1,
-		"name": "Book",
+		"name": "Rato",
 		"price": 10.99,
-		"imgUrl": "/images/book.jpg"
+		"imgUrl": "/images/rato.webp"
 	},
 	{
 		"id": 2,
 		"name": "Computer",
 		"price": 1199,
-		"imgUrl": "/images/computer.jpg"
+		"imgUrl": "/images/Portátil ASUS.jpg"
 	},
 	{
 		"id": 3,
-		"name": "Banana",
+		"name": "Cadeira",
 		"price": 1.05,
-		"imgUrl": "/images/banana.jpg"
+		"imgUrl": "/images/cadeira.webp"
 	},
 	{
 		"id": 4,
-		"name": "Car",
+		"name": "Auscultador",
 		"price": 14000,
-		"imgUrl": "/images/car.jpg"
+		"imgUrl": "/images/auscultador.webp"
 	}
 ]

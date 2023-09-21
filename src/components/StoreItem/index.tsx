@@ -22,14 +22,11 @@ function StoreItem({ id, name, price, imgUrl }: StoreItemProp) {
 	const quantity = getItemQuantity(id);
 
 	return (
-		<li
-			key={id}
-			className="bg-[#243B48] border-2 border-slate-100 rounded-md overflow-hidden"
-		>
+		<li key={id} className="bg-[#243B48] border-2 border-slate-100 rounded-md">
 			<img
 				src={imgUrl}
 				alt={name}
-				className="object-cover w-80 h-80 md:w-96 md:h-96"
+				className="object-cover w-80 h-80 md:w-96 md:h-96 rounded-t-md"
 			/>
 			<div className="grid grid-cols-2 gap-3 py-5 items-center mx-3">
 				<cite className="text-2xl">{name}</cite>
